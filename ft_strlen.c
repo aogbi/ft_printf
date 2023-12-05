@@ -6,11 +6,12 @@
 /*   By: aogbi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:49:38 by aogbi             #+#    #+#             */
-/*   Updated: 2023/12/04 18:04:46 by aogbi            ###   ########.fr       */
+/*   Updated: 2023/12/05 15:25:33 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aogbi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 19:02:01 by aogbi             #+#    #+#             */
-/*   Updated: 2023/12/05 15:25:33 by aogbi            ###   ########.fr       */
+/*   Created: 2023/12/05 15:15:39 by aogbi             #+#    #+#             */
+/*   Updated: 2023/12/05 15:24:47 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s, int len)
+int	ft_putbase(size_t nbr, char *base, int len)
 {
-	int	i;
+	size_t	base_len;
 
-	i = 0;
-	if (!s)
+	base_len = ft_strlen(base);
+	len = ft_putstr("0x", len);
+	if (nbr < base_len)
 	{
-		write(1, "(null)", 6);
-		return (len + 6);
+		len = ft_putchar(base[nbr % base_len], len);
 	}
-	while (s[i])
+	else
 	{
-		write(1, &s[i], 1);
-		i++;
+		len = ft_putnbr_base(nbr / base_len, base, len);
+		len = ft_putnbr_base(nbr % base_len, base, len);
 	}
-	return (i + len);
+	return (len);
 }
